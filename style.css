@@ -70,7 +70,10 @@ footer {
     display: block;
     text-align: center;
     position: relative;
+    margin: auto;
+    width: 50%;
     min-height: 90vh;
+    max-width: 70vh;
 }
 
 #page-title {
@@ -87,19 +90,15 @@ footer {
 #about-p {
     text-align: center;
     display: block;
-    margin-left: 525px;
-    margin-right: 525px;
-    margin-bottom: 125px;
-    margin-top: 50px;
+}
+
+#about-div {
+    height: 5vh;
 }
 
 #contact-p {
     text-align: center;
     display: block;
-    margin-left: 525px;
-    margin-right: 525px;
-    margin-bottom: 25px;
-    margin-top: 50px;
 }
 
 #contact-div {
@@ -108,8 +107,7 @@ footer {
 
 @media screen and (max-width: 800px) {
 
-	.wide-container,
-	.container {
+	#about-p {
 		max-width: 70em;
 		margin: 0 auto;
 		padding: 0 1.5em;
@@ -129,14 +127,4 @@ footer {
 	p.search-title {
 		text-align: left;
 	}
-
-	h2 {
-		font-size: 2em;
-		margin: 2em 0 1em 0;
-	}
-
-	.join-cta h2 {
-		text-align:center;
-	}
-
 }
