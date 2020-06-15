@@ -73,13 +73,13 @@ footer {
     margin: auto;
     width: 50%;
     min-height: 90vh;
-    max-width: 70vh;
 }
 
 #page-title {
     height: 80px;
     font-size: 75px;
     display: block;
+    text-align: center;
 }
 
 #page-nav {
@@ -88,7 +88,7 @@ footer {
 }
 
 #about-p {
-    text-align: center;
+    text-align: left;
     display: block;
 }
 
@@ -108,11 +108,20 @@ footer {
 @media screen and (max-width: 800px) {
 
 	#about-p {
-		max-width: 70em;
+		max-width: 100%;
 		margin: 0 auto;
 		padding: 0 1.5em;
 		overflow: hidden;
-	}
+    }
+    
+    #page-center {
+        display: block;
+        text-align: center;
+        position: relative;
+        margin: auto;
+        width: 100%;
+        min-height: 90vh;
+    }
 
 	footer a .product-card {
 		min-width: 14em;
