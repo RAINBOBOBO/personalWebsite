@@ -1,0 +1,32 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #40516e;
+    color: #e8eef2;
+    font-size: 25px;
+}
+
+.container {
+    display: block;
+    text-align: center;
+}
+
+.turnCounter, .scoreCounter {
+    margin-bottom: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: #e8eef2;
+}
+
+#titleSpace, #scoreSpace {
+    height: 5vh;
+}
+
+#formHide {
+    display: none;
+}
+
+#backToGameDiv {
+    margin-top: 80px;
+}

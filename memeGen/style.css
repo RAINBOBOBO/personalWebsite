@@ -1,0 +1,70 @@
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+input[type=text] {
+    font-size: 25px;
+    width: 99%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+label {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#subBreak {
+    height: 10px;
+}
+
+.imgHolder {
+    display: inline-block;
+    position: relative;
+}
+
+.topText {
+    position: absolute;
+    font-family: 'Fredoka One', cursive;
+    top: 5px;
+    left: 50%;
+    color: white;
+    font-size: 300%;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.bottomText {
+    position: absolute;
+    font-family: 'Fredoka One', cursive;
+    bottom: 5px;
+    left: 50%;
+    color: white;
+    font-size: 300%;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.meme {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.memeX {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.imgHolder:hover .meme{
+    transition: .5s ease;
+    opacity: .3;  
+}
+
+.imgHolder:hover .memeX{
+    transition: .5s ease;
+    opacity: 1;  
+}

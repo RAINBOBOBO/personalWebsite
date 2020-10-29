@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory</title>
+    <link rel="stylesheet" href="memoryStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <script>
+        let name = new URLSearchParams(window.location.search).get("name");
+        if (name !== null && localStorage.getItem("nameTag" + name) === null){
+            if (localStorage.getItem('tempScore') !== null){
+                localStorage.setItem("nameTag" + name, localStorage.getItem('tempScore'));
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="formDiv">
+            <h1>You win!</h1>
+            <div id="titleSpace"></div>
+            <form id="form" method="GET" action="victory.html">
+                <label for="name">Name: (For high score tracking)</label><br>
+                <input type="text" name="name">
+                <div id="subBreak"></div>
+                <input type="submit">
+            </form>
+        </div>
+        <div id="scoreSpace"></div>
+        <div id="scoreboard">
+            <div>
+                <h2>High Scores:</h2>
+            </div>
+        </div>
+        <div id="backToGameDiv">
+            <a href="memory.html">Back to game</a>
+        </div>
+    </div>
+    <script>
+        if (name !== null){
+            let formDiv = document.getElementById("formDiv");
+            formDiv.setAttribute("id", "formHide");
+        }
+
+        let titleSpace = document.getElementById('titleSpace');
+        titleSpace.innerHTML = ("Your score is: " + localStorage.getItem('tempScore'));
+
+        let scoreBoard = document.getElementById('scoreboard');
+        let keys = Object.keys(localStorage);
+        let names = keys.filter(key => (key.search("nameTag") !== -1));
+        let scores = [];
+        for (let i=0; i<names.length; i++){
+            scores.push(parseInt(localStorage.getItem(names[i])));
+        }
+        let sortedScores = scores.slice();
+        sortedScores.sort(function(a, b){return a-b})
+        let scoreLength = sortedScores.length;
+
+        if (scoreLength >= 1) {
+            let s1 = sortedScores[0];
+            let n1 = names[scores.indexOf(s1)].slice(7);
+            console.log("first ", sortedScores, s1, names, n1);
+            sortedScores.splice(0, 1);
+            console.log(scores.indexOf(s1));
+            names.splice(scores.indexOf(s1), 1);
+            scores.splice(scores.indexOf(s1), 1);
+
+            let highScore1 = document.createElement('div');
+            highScore1.setAttribute('class', 'highScore');
+            highScore1.setAttribute('id', 'highScore1');
+            document.getElementById('scoreboard').appendChild(highScore1);
+            document.getElementById('highScore1').innerHTML = (n1 + ": " + s1);
+        }
+        console.log(sortedScores, scores, names);
+        if (scoreLength >= 2) {
+            let s2 = sortedScores[0];
+            let n2 = names[scores.indexOf(s2)].slice(7);
+            console.log("second ", sortedScores, s2, names, n2);
+            sortedScores.splice(0, 1);
+            names.splice(scores.indexOf(s2), 1);
+            scores.splice(scores.indexOf(s2), 1);
+
+            let highScore2 = document.createElement('div');
+            highScore2.setAttribute('class', 'highScore');
+            highScore2.setAttribute('id', 'highScore2');
+            document.getElementById('scoreboard').appendChild(highScore2);
+            document.getElementById('highScore2').innerHTML = (n2 + ": " + s2);
+        }
+        if (scoreLength >= 3) {
+            let s3 = sortedScores[0];
+            let n3 = names[scores.indexOf(s3)].slice(7);
+            console.log("third ", sortedScores, s3, names, n3);
+            sortedScores.splice(0, 1);
+            names.splice(scores.indexOf(s3), 1);
+            scores.splice(scores.indexOf(s3), 1);
+
+            let highScore3 = document.createElement('div');
+            highScore3.setAttribute('class', 'highScore');
+            highScore3.setAttribute('id', 'highScore3');
+            document.getElementById('scoreboard').appendChild(highScore3);
+            document.getElementById('highScore3').innerHTML = (n3 + ": " + s3);
+        }
+    </script>
+</body>
+</html>

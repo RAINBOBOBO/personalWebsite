@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="title">
+  <h1>MEME GENERATOR</h1>
+</div>
+
+<form id="form" onsubmit="memeCounter()">
+  <label for="link">Link to image:</label><br>
+  <input type="text" name="link" id="link">
+  <br>
+  <label for="top">Top text:</label><br>
+  <input type="text" name="top">
+  <br>
+  <label for="bottom">Bottom text:</label><br>
+  <input type="text" name="bottom">
+  <div id="subBreak"></div>
+  <input type="submit">
+</form>
+
+<div id="results" class="container"></div>
+
+<script>
+  for (let i=1; i<=sessionStorage.getItem('memeCt'); i++){
+    console.log(sessionStorage.getItem(i + 'url'));
+    if (sessionStorage.getItem(i + 'url') !== null){
+      let newDiv = document.createElement("div");
+      newDiv.setAttribute('class', 'imgHolder');
+      newDiv.setAttribute('id', i + 'imgHolder');
+      document.getElementById('results').appendChild(newDiv);
+
+      let newImg = document.createElement("img");
+      newImg.setAttribute('src', sessionStorage.getItem(i + 'url'));
+      newImg.setAttribute('class', 'meme');
+      newImg.setAttribute('index', i+'');
+      document.getElementById(i + 'imgHolder').appendChild(newImg);
+
+      let newX = document.createElement("img");
+      newX.setAttribute('src', 'xout.png');
+      newX.setAttribute('class', 'memeX');
+      newX.setAttribute('index', i+'');
+      document.getElementById(i + 'imgHolder').appendChild(newX);
+      newX.addEventListener("click", delimg);
+
+      let newtText = document.createElement("div");
+      newtText.setAttribute('class', 'topText');
+      newtText.setAttribute('id', i + 'topText');
+      document.getElementById(i + 'imgHolder').appendChild(newtText);
+      document.getElementById(i + 'topText').innerHTML = sessionStorage.getItem(i + 'tText');
+
+      let newbText = document.createElement("div");
+      newbText.setAttribute('class', 'bottomText');
+      newbText.setAttribute('id', i + 'bottomText');
+      document.getElementById(i + 'imgHolder').appendChild(newbText);
+      document.getElementById(i + 'bottomText').innerHTML = sessionStorage.getItem(i + 'bText');
+    }
+  }
+</script>
+
+</body>
+</html>

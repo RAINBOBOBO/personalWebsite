@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="memoryStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="row1" class="row">
+            <img id="card 1" src="cardBack.png" alt="card back">
+            <img id="card 2" src="cardBack.png" alt="card back">
+            <img id="card 3" src="cardBack.png" alt="card back">
+            <img id="card 4" src="cardBack.png" alt="card back">
+        </div>
+        <div id="row2" class="row">
+            <img id="card 5" src="cardBack.png" alt="card back">
+            <img id="card 6" src="cardBack.png" alt="card back">
+            <img id="card 7" src="cardBack.png" alt="card back">
+            <img id="card 8" src="cardBack.png" alt="card back">
+        </div>
+        <div id="row3" class="row">
+            <img id="card 9" src="cardBack.png" alt="card back">
+            <img id="card 10" src="cardBack.png" alt="card back">
+            <img id="card 11" src="cardBack.png" alt="card back">
+            <img id="card 12" src="cardBack.png" alt="card back">
+        </div>
+        <div id="row4" class="row">
+            <img id="card 13" src="cardBack.png" alt="card back">
+            <img id="card 14" src="cardBack.png" alt="card back">
+            <img id="card 15" src="cardBack.png" alt="card back">
+            <img id="card 16" src="cardBack.png" alt="card back">
+        </div>
+        <div id="newGame" class="newGame">
+            <a href="memory.html">New Game</a>
+        </div>
+    </div>
+
+    <script>
+        let cardPositions = generatePositions();
+        for (let i=1; i<=16; i++){
+            let card = document.getElementById("card " + i);
+            card.addEventListener("click", function(){flipCard(i, card, cardPositions)});
+        }
+
+        let scoreCounter = document.createElement("div");
+        scoreCounter.setAttribute("class", "scoreCounter");
+        scoreCounter.setAttribute("id", "scoreCounter");
+        scoreCounter.innerHTML = "Score: " + sessionStorage.getItem("score");
+        document.getElementById("container").prepend(scoreCounter);
+        
+        let turnCounter = document.createElement("div");
+        turnCounter.setAttribute("class", "turnCounter");
+        turnCounter.setAttribute("id", "turnCounter");
+        turnCounter.innerHTML = "Turns: " + sessionStorage.getItem("turns");
+        document.getElementById("container").prepend(turnCounter);
+    </script>
+</body>
+</html>
