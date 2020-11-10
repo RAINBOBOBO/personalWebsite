@@ -23,6 +23,12 @@ footer {
     height: 2.5rem; 
 }
 
+#paragraph-link {
+    text-decoration: underline;
+    color: #5aaee6;
+    display: inline;
+}
+
 #content-wrap {
     padding-bottom: 2.5rem;
 }
